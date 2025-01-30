@@ -1,0 +1,164 @@
+/* Sertifika sayfasına özel stiller */
+.certificates-page {
+    padding: 120px 20px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 100vh; /* Yükseklik ayarı */
+    position: relative;
+    padding-bottom: 100px; /* Footer için boşluk */
+    display: flex;
+    flex-direction: column;
+    transition: padding-top 0.3s ease;
+      
+}
+.description {
+    color: #666;
+    margin-bottom: 1.5rem;
+    margin: 0 auto; /* Centering the description */
+    line-height: 1.6;
+    text-align: center; /* Center text alignment */
+}
+.certificates-page h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: #2c3e50;
+}
+
+.certificates-container {
+    flex: 1; /* İçeriği esnek yap */
+    margin-bottom: 2rem; /* Footer ile arasında boşluk bırak */
+    display: grid;
+    gap: 3rem;
+}
+
+.certificate-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.certificate-card:hover {
+    transform: translateY(-5px); /* Hover efekti */
+}
+
+.certificate-image {
+    position: relative;
+    height: 180px; /* Sertifika görsel yüksekliği */
+    overflow: hidden;
+}
+
+.certificate-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Görselin kapsama şekli */
+    transition: transform 0.3s ease; /* Geçiş efekti */
+}
+
+.certificate-content {
+    padding: 2rem; /* İçerik alanı */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Dikey hizalama */
+}
+
+.certificate-content h2 {
+    color: #2c3e50; /* Başlık rengi */
+    margin-bottom: 1rem; /* Alt boşluk */
+    font-size: 1.8rem; /* Başlık boyutu */
+}
+
+.certificate-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Esnek kolonlar */
+    gap: 0.5rem; /* Görseller arası boşluk */
+    margin:50px;
+    
+}
+
+.certificate-gallery img {
+    border-radius: 8px; /* Kenar yuvarlama */
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Gölgelendirme */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Geçiş efekti */
+    width: 100%; /* Genişlik ayarı */
+    height: auto; /* Yükseklik otomatik */
+}
+
+.certificate-gallery img:hover {
+    transform: scale(1.05); /* Hover'da büyüme efekti */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Hover'da gölge derinliği */
+}
+
+/* Mobil Responsive */
+@media screen and (max-width: 768px) {
+    .certificate-gallery {
+        display: flex; /* Flex düzeni kullanarak daha iyi bir görünüm elde et */
+        flex-wrap: wrap; /* Taşma durumunda taşma */
+        justify-content: center; /* Ortala */
+        gap: 1rem; /* Aralık ayarı */
+    }
+
+    .certificate-gallery img {
+        max-width: 90%; /* Mobilde maksimum genişlik */
+        height: auto; /* Yükseklik otomatik */
+    }
+
+    .certificate-card {
+        margin: 0 10px; /* Kartlar arasında boşluk */
+    }
+
+    .certificate-card {
+        flex-direction: column; /* Dikey hizalama */
+    }
+
+    .certificate-image {
+        height: 200px; /* Mobilde yükseklik ayarı */
+    }
+
+    .certificates-page {
+        padding: 100px 15px 80px; /* Mobilde boşluk ayarı */
+    }
+
+    .certificates-page h1 {
+        font-size: 2rem; /* Başlık boyutu */
+        margin-bottom: 2rem; /* Alt boşluk */
+    }
+}
+
+/* Scroll özelliği için navbar stili */
+.navbar {
+    transition: transform 0.3s ease;
+}
+
+.navbar.hidden {
+    transform: translateY(-100%);
+}
+
+/* Navbar gizlendiğinde içeriği yukarı kaydır */
+.navbar.hidden + .certificates-page {
+    padding-top: 60px;
+}
+
+/* Footer için özel stil */
+.footer {
+    position: relative;
+    margin-top: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    background-color: #2c3e50;
+    padding: 1rem 0;
+}
+
+.certificate-title {
+    text-align: center; /* Başlıkları ortala */
+    margin-bottom: 1rem; /* Alt boşluk */
+    font-size: 1.8rem; /* Başlık boyutu */
+    color: #2c3e50; /* Başlık rengi */
+    margin-top: 1rem;
+}

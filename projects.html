@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Projects - Özkan Yıldız</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Özkan Yıldız</div>
+        <div class="nav-buttons">
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="#" class="active">Projects</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+
+        </ul>
+    </nav>
+
+    <main class="projects-page">
+        <h1>My Projects</h1>
+        
+        <div class="projects-container">
+            <div class="project-card">
+                <div class="project-content">
+                    <h2>Word App</h2>
+                    <p class="project-description">This is a desktop application that includes the features that those who want to learn English will need. The main goal is to systematically record unknown words or sentences in lists you create and later practice with them to memorize those words. You can work with quizzes created by Gemini AI, which explains each option to you one by one. 
+                        It also checks a piece of writing you have written for grammar and corrects any mistakes.</p>
+                    <h3>Sections</h3>
+                    <h4>1. Lists:</h4>
+                    <p class="project-description">You can create as many different lists as you want and add the words you don't know to them. </p>
+                    <h4>2. Translation:</h4>
+                    <p class="project-description">As you can see from the name, you can translate words and then add them to the lists you previously created using the "Add to List" button. </p>
+                    <h4>3. Grammar Check:</h4>
+                    <p class="project-description">You can check the grammar of the sentences you have written using Gemini and correct any mistakes. </p>
+                    <h4>4. Exercise:</h4>
+                    <ul class="project-description">
+                        <li>Gemini AI creates a 4-option quiz for you based on the topic and level you choose, then it explains whether your answer is correct or not, and if it is wrong, it explains why and the options one by one.</li>
+                        <li>In the "My Lists" section, the words in the lists you created appear randomly and you try to find the correct answer.</li>
+                    </ul>
+                    <div class="project-tech">
+                        <span>Python</span>
+                        <span>Gemini AI</span>
+                        <span>Customtkinter</span>
+                        <span>OOP Programming</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/Ozkanyildizz/Word-App" class="project-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </div>
+                <div class="project-video">
+                    <div class="video-thumbnail" id="videoThumbnail">
+                        <video id="previewVideo" muted loop playsinline>
+                            <source src="docs/video.mp4" type="video/mp4">
+                        </video>
+                        <button class="video-play-btn">▶</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- <div class="project-card">
+                <div class="project-image">
+                    <img src="https://source.unsplash.com/random/600x400/?coding" alt="Project 2">
+                </div>
+                <div class="project-content">
+                    <h2>Project Two</h2>
+                    <p class="project-description">Mobile-first responsive website with modern animations. Features smooth scrolling and interactive elements.</p>
+                    <div class="project-tech">
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-btn" target="_blank" rel="noopener noreferrer">Live Demo</a>
+                        <a href="#" class="project-btn" target="_blank" rel="noopener noreferrer">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main> 
+
+
+    <div class="video-modal" id="videoModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <video id="fullVideo" controls>
+                    <source src="docs/video.mp4" type="video/mp4">
+                </video>
+            </div>
+        </div>
+    </div> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Özkan Yıldız &copy; 2025</p>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Hamburger menüsü için JavaScript
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Menü açma/kapama
+        });
+    </script>
+</body>
+</html> 
