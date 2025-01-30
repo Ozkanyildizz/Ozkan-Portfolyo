@@ -536,4 +536,21 @@ body {
     background-color: #d4cece; /* Çubuk rengi */
     margin: 5px; /* Aralık */
     transition: all 0.3s; /* Geçiş efekti */
+}
+
+.video-modal {
+    display: none; /* Hide by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8); /* Semi-transparent background */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.video-modal.active {
+    display: flex; /* Show when active */
 } 

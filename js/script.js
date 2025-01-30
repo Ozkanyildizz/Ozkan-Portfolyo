@@ -4,7 +4,9 @@ const closeMenu = document.querySelector('.close-menu');
 const navbar = document.querySelector('.navbar');
 let isNavbarVisible = true;
 let lastScrollTop = 0;
-let lastScrollY = window.scrollY;
+
+
+
 
 // Scroll olayını dinle
 window.addEventListener('scroll', () => {
@@ -19,37 +21,8 @@ window.addEventListener('scroll', () => {
     lastScrollTop = scrollTop;
 });
 
+
 // Video kontrolü için fonksiyon
-function initializeVideoControls() {
-    if (!projectVideo || !modalVideo || !videoModal || !playBtn || !closeModal) {
-        console.log("Video elementleri bulunamadı");
-        return;
-    }
-    // Modalı kapatma
-    closeModal.addEventListener('click', () => {
-        videoModal.classList.remove('active');
-        modalVideo.pause();
-        projectVideo.play();
-    });
-
-    // Modal dışına tıklandığında kapatma
-    videoModal.addEventListener('click', (e) => {
-        if (e.target === videoModal) {
-            videoModal.classList.remove('active');
-            modalVideo.pause();
-            projectVideo.play();
-        }
-    });
-
-   // ESC tuşu kontrolü
-   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-        videoModal.classList.remove('active');
-        fullVideo.pause();
-        previewVideo.play();
-    }
-});
-}
 
 // Binary Rain Effect
 function createBinaryRain() {
@@ -103,61 +76,47 @@ document.addEventListener('DOMContentLoaded', function() {
         const closeModalBtn = document.querySelector('.close-modal');
         const playBtn = document.querySelector('.video-play-btn');
 
-        // Küçük video ayarları
-        if (previewVideo) {
-            previewVideo.muted = true;
-            previewVideo.play().catch(err => console.log('Preview video error:', err));
-        }
+        // Play button click event
+        playBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent event bubbling
+            videoModal.classList.add('active'); // Show modal
+            previewVideo.pause(); // Pause preview video
+            fullVideo.currentTime = 0; // Reset full video
+            fullVideo.muted = false; // Unmute full video
+            fullVideo.play(); // Play full video
+        });
 
-        // Play butonu tıklama
-        if (playBtn) {
-            playBtn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                videoModal.classList.add('active');
-                previewVideo.pause();
-                fullVideo.currentTime = 0;
-                fullVideo.muted = false;
-                fullVideo.play();
-            });
-        }
+        // Video thumbnail click event
+        videoThumbnail.addEventListener('click', () => {
+            videoModal.classList.add('active'); // Show modal
+            previewVideo.pause(); // Pause preview video
+            fullVideo.currentTime = 0; // Reset full video
+            fullVideo.muted = false; // Unmute full video
+            fullVideo.play(); // Play full video
+        });
 
-        // Video thumbnail tıklama
-        if (videoThumbnail) {
-            videoThumbnail.addEventListener('click', () => {
-                videoModal.classList.add('active');
-                previewVideo.pause();
-                fullVideo.currentTime = 0;
-                fullVideo.muted = false;
-                fullVideo.play();
-            });
-        }
+        // Close modal button click event
+        closeModalBtn.addEventListener('click', () => {
+            videoModal.classList.remove('active'); // Hide modal
+            fullVideo.pause(); // Pause full video
+            previewVideo.play(); // Play preview video
+        });
 
-        // Modal kapatma
-        if (closeModalBtn) {
-            closeModalBtn.addEventListener('click', () => {
-                videoModal.classList.remove('active');
-                fullVideo.pause();
-                previewVideo.play();
-            });
-        }
+        // Modal click event to close
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                videoModal.classList.remove('active'); // Hide modal
+                fullVideo.pause(); // Pause full video
+                previewVideo.play(); // Play preview video
+            }
+        });
 
-        // Modal dışına tıklama
-        if (videoModal) {
-            videoModal.addEventListener('click', (e) => {
-                if (e.target === videoModal) {
-                    videoModal.classList.remove('active');
-                    fullVideo.pause();
-                    previewVideo.play();
-                }
-            });
-        }
-
-        // ESC tuşu kontrolü
+        // ESC key event to close modal
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && videoModal.classList.contains('active')) {
-                videoModal.classList.remove('active');
-                fullVideo.pause();
-                previewVideo.play();
+                videoModal.classList.remove('active'); // Hide modal
+                fullVideo.pause(); // Pause full video
+                previewVideo.play(); // Play preview video
             }
         });
     }
@@ -167,6 +126,8 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Hamburger menüsü için JavaScript
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active'); // Menü açma/kapama
-}); 
+if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active'); // Menü açma/kapama
+    });
+} 
