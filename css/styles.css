@@ -68,6 +68,12 @@ body {
     border-bottom: solid 2px #22ab4d;
 }
 
+.nav-links li a i {
+    margin-right: 5px; /* Space between icon and text */
+    font-size: 1rem; /* Adjust icon size */
+    vertical-align: middle; /* Align icon with text */
+}
+
 /* Desktop nav-links visibility */
 @media screen and (min-width: 769px) {
     .nav-links {

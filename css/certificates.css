@@ -162,3 +162,22 @@
     color: #2c3e50; /* Başlık rengi */
     margin-top: 1rem;
 }
+
+.list {
+    list-style-type: none; /* Remove default bullet points */
+    padding-left: 25px; /* Remove default padding */
+    padding-right: 25px;
+    margin: 1rem 0; /* Add margin for spacing */
+}
+
+.list li {
+    background: #f0f0f0; /* Light background for list items */
+    border-radius: 5px; /* Rounded corners */
+    padding: 0.5rem 1rem; /* Padding for list items */
+    margin-bottom: 0.5rem; /* Space between list items */
+    transition: background 0.3s; /* Smooth background transition */
+}
+
+.list li:hover {
+    background: #e0e0e0; /* Change background on hover */
+}
